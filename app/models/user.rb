@@ -1,8 +1,15 @@
 class User < ApplicationRecord
   attr_accessor :password
 
-  validates :email, presence: true, uniqueness: true
-  validates :password, presence: true, confirmation: true, on: :create
+  email_regex = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z/i
+
+  validates :name, presence: true
+  validates :email, presence: true,
+                    uniqueness: true,
+                    format: { with: email_regex }
+  validates :password, presence: true,
+                       confirmation: true, on: :create
+  validates :password_confirmation, presence: true
 
   has_many :tasks
 

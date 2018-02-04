@@ -10,16 +10,22 @@
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
+  username: context
   password:
   host: localhost
 
 development:
-  <<: *default
-  database: context_development
+#  <<: *default
+  adapter: postgresql
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: context
+  password:
+  host: localhost
+  database: context_database
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

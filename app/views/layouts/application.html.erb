@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <h1 class ="app-title"><%= link_to 'Context', root_path %></h1>
+
+    <% flash.each do |type, content| %>
+      <%= content_tag :div, content, class: "flash-content flash-content_#{type}" %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

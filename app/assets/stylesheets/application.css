@@ -12,4 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require_reset
+ *= require ./shared/flash
+ *= require ./shared/form
  */

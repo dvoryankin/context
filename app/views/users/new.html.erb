@@ -1,23 +1,23 @@
 <section class="input-form">
-  <h1>New user</h1>
+  <h1>New context</h1>
 
   <%= form_for @user do |f| %>
     <div class="input-form__element">
       <%= f.label :email, 'Your email:' %><%= f.text_field :email %>
-      <%#= error_on_field :email, f.object %>
+      <%= error_on_field :email, f.object %>
     </div>
 
     <div class="input-form__element">
       <%= f.label :password, 'Password:' %><%= f.password_field :password %>
-      <%#= error_on_field :password, f.object %>
+      <%= error_on_field :password, f.object %>
     </div>
 
     <div class="input-form__element">
       <%= f.label :password_confirmation, 'Confirm:' %><%= f.password_field :password_confirmation %>
-      <%#= error_on_field :password_confirmation, f.object %>
+      <%= error_on_field :password_confirmation, f.object %>
     </div>
 
-    <%= submit_tag 'Create user' %>
+    <%= submit_tag 'Create context' %>
   <% end %>
 </section>
 

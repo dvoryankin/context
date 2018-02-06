@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   end
 
   def index
+    @tasks
   end
 
   def show

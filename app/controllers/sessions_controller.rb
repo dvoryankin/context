@@ -26,4 +26,10 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path, notice: "You're successfully logged off"
   end
+
+  private
+
+  def show_tasks_for_user
+    redirect_to tasks_path, notice: 'Welcome to context!' if current_user
+  end
 end

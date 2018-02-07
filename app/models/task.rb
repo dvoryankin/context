@@ -1,12 +1,13 @@
 class Task < ApplicationRecord
+
+  validates :incontext, uniqueness: { scope: :user_id }, :if => Proc.new{ |task| task.incontext? }
+
   belongs_to :user
 
-  validates :incontext, uniqueness: { scope: :user_id }, if: proc { |task| task.incontext? }
-
-  scope :recent, lambda.count do
-    tasks = limit(count).order('created at DESC')
-    add_length = count - task.size
-    tasks += Array.new(add_length) { Task.new }
+  scope :recent, ->count do
+    tasks = limit(count).order('created_at DESC')
+    add_length = count - tasks.size
+    tasks += Array.new(add_length){ Task.new }
   end
 
   scope :incomplete, -> { where completed: false }

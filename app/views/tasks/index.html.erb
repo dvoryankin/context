@@ -1,6 +1,6 @@
-you are in tasks/index.html.erb
+<%= link_to :logout, 'logout' %>
 
-<div class="tasks_context">
+<div class="tasks__context">
   <div class="tasks__context__element" data-progress="<%= @context.try :progress %>">
     <%= @context.try :content %>
   </div>
@@ -9,4 +9,3 @@ you are in tasks/index.html.erb
 <div class="tasks__index">
   <%= render partial: 'task', collection: @tasks %>
 </div>
-

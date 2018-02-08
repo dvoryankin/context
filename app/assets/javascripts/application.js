@@ -13,6 +13,6 @@
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
-//= require ./app/context
+//= require app/context.js.coffee
 //= require init
 //= require_tree .

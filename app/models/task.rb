@@ -13,4 +13,8 @@ class Task < ApplicationRecord
   scope :incomplete, -> { where completed: false }
   scope :context, -> { where incontext: true }
   scope :free, -> { where incontext: false }
+
+  def be_incontext!
+    update_attributes incontext: true
+  end
 end

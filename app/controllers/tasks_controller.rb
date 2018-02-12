@@ -1,9 +1,11 @@
 class TasksController < ApplicationController
-  def new
-  end
+
+  before_action :find_task, only: [ :incontext, :step ]
+
 
   def index
     @tasks = current_user.tasks.free.incomplete.recent(5)
+    @context = current_user.tasks.context.first
   end
 
   def create
@@ -12,6 +14,17 @@ class TasksController < ApplicationController
     render json: { success: @task.save, id: @task.id }
   end
 
+  def incontext
+    result = @task.be_incontext!
+    render json: { success: result, content: @task.content }
+  end
+
   def show
+  end
+
+  private
+
+  def find_task
+    @task = current_user.tasks.find params[:id]
   end
 end
